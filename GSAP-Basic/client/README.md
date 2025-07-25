@@ -1,12 +1,41 @@
-# React + Vite
+# Main Tween Methods
+### gsap.to() - Animates TO specified values:
+```
+javascriptsap.to(".box", {duration: 2, x: 100, rotation: 360});
+```
+### gsap.from() - Animates FROM specified values to current values:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+    javascriptgsap.from(".box", {duration: 2, x: 100, opacity: 0});
 
-Currently, two official plugins are available:
+### gsap.fromTo() - Animates FROM one set of values TO another:
+    javascriptgsap.fromTo(".box", 
+      {x: 0, opacity: 0}, 
+      {duration: 2, x: 100, opacity: 1}
+    );
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### gsap.set() - Immediately sets values without animation:
+    javascriptgsap.set(".box", {x: 100, scale: 2});
 
-## Expanding the ESLint configuration
+# Common Properties
+Tweens can animate CSS properties, transforms, and custom properties:
+- Position: `x`, `y`, `left`, `top`
+- Scale: `scale`, `scaleX`, `scaleY`
+- Rotation: `rotation`, `rotationX`, `rotationY`
+- Opacity: `opacity`
+- Colors: `backgroundColor`, `color`
+- And many more
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Tween Configuration
+Tweens accept various configuration options:
+
+    javascriptgsap.to(".box", {
+      duration: 2,
+      x: 100,
+      ease: "bounce.out",
+      delay: 0.5,
+      repeat: 2,
+      yoyo: true,
+      onComplete: function() {
+        console.log("Animation finished");
+      }
+    });
