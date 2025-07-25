@@ -1,0 +1,37 @@
+import React from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+const GsapFrom = () => {
+  // TODO: Implement the gsap.from() method
+  useGSAP(() => {
+    gsap.from("#greenBox", {
+      x: 600,
+      duration: 3,
+      opacity: 0,
+    });
+  }, []);
+
+  return (
+    <main className="container p-5">
+      <h1 className="text-4xl font-bold text-white">GsapFrom</h1>
+      <p className="mt-5 text-gray-500">
+        The <code className="text-yellow-500">gsap.from()</code> method is used
+        to animate elements from their new state to their current state.
+      </p>
+      <p className="mt-5 text-gray-500">
+        The <code className="text-yellow-500">gsap.from()</code> method is
+        similar to the <code className="text-yellow-500">gsap.to()</code>{" "}
+        method, but the difference is that the{" "}
+        <code className="text-yellow-500">gsap.from()</code> method animates
+        from their new state to their current state, while the{" "}
+        <code className="text-yellow-500">gsap.to()</code> method animates
+        element from current state to a new state
+      </p>
+      <div className="mt-20">
+        <div id="greenBox" className="w-20 h-20 bg-green-300 rounded-lg"></div>
+      </div>
+    </main>
+  );
+};
+
+export default GsapFrom;
